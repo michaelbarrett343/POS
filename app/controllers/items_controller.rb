@@ -8,12 +8,7 @@ class ItemsController < ApplicationController
     end
   
     def create
-      @Item = Item.new
-      if @event.save
-        # redirect_to profile_path
-      else
-        render :new
-      end
+      @Item = Item.create
     end
   
     def destroy

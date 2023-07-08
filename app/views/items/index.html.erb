@@ -6,6 +6,18 @@
   <title>Document</title>
 </head>
 <body>
+<%= form_with model: @item do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :category %>
+  <%= f.text_field :category %>
+  <%= f.label :cost_price %>
+  <%= f.number_field :cost_price %>
+  <%= f.label :sale_price %>
+  <%= f.number_field :sale_price %>
+  <%= f.submit %>
+<% end %>
+<%= link_to "Home", root_path %>
 <ul>
   <% @items.each do |item| %>
     <li><%= item.name %></li>
