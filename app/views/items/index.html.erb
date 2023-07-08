@@ -6,8 +6,11 @@
   <title>Document</title>
 </head>
 <body>
-<p>
-  <%@items%>
-</p>
+<ul>
+  <% @items.each do |item| %>
+    <li><%= item.name %></li>
+  <% end %>
+
+</ul>
 </body>
 </html>
