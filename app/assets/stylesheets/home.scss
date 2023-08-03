@@ -53,6 +53,14 @@ background-color: blue;
   height: 100%;
   width: 20%;
   background-color: red;
+  display: flex;
+  flex-direction: column;
+}
+/* catergories buttons*/
+.category-buttons {
+  margin: 2% 5%;
+  height: 5%;
+  align-items: center;
 }
 /* items */
 .Items {

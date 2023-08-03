@@ -25,6 +25,9 @@
   </div>
 
   <div class="Categories">
+    <% @items.each do |item| %>
+      <button class="category-buttons" type="button"><%= item.category %></button>
+    <% end %>
   </div>
 
   <div class="Items">

@@ -16,3 +16,11 @@ item = Item.create(user: User.all.sample, name:'35 ml vodka', category: 'vodka',
 10.times {
   Item.create(user:User.all.sample, name:Faker::Beer.name, category:'beer', cost_price:Faker::Number.number(digits: 1), sale_price:Faker::Number.number(digits: 1))
 }
+
+10.times {
+  Item.create(user:User.all.sample, name:Faker::Beer.name, category:'cocktails', cost_price:Faker::Number.number(digits: 1), sale_price:Faker::Number.number(digits: 1))
+}
+
+10.times {
+  Item.create(user:User.all.sample, name:Faker::Beer.name, category:'gin', cost_price:Faker::Number.number(digits: 1), sale_price:Faker::Number.number(digits: 1))
+}
