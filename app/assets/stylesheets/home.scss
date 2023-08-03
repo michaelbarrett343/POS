@@ -58,9 +58,20 @@ background-color: blue;
 }
 /* catergories buttons*/
 .category-buttons {
+  text-decoration: none;
   margin: 2% 5%;
-  height: 5%;
+  height: 7%;
   align-items: center;
+  background-color: #555;
+  color: #faf7f7;
+  border: 2px solid;
+  border-color: rgb(78, 206, 223);
+  border-radius: 15px;
+  font-weight: 600;
+}
+
+.category-buttons:hover {
+  background-color: rgb(78, 206, 223);
 }
 /* items */
 .Items {
