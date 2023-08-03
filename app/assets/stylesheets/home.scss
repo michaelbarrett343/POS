@@ -1,3 +1,8 @@
+body {
+  margin: 0;
+  height: 100%;
+}
+/* nav bar */
 #nav-bar {
   list-style-type: none;
   margin: 0;
@@ -26,4 +31,32 @@
 #nav-bar a:hover {
   background-color: #555;
   color: rgb(78, 206, 223);
+}
+
+/* container */
+.Container {
+  height: 100vh;
+  background-color: #555;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  display: flex;
+}
+/* screen */
+.Screen {
+height: 100%;
+width: 40%;
+background-color: blue;
+}
+/* catergories */
+.Categories {
+  height: 100%;
+  width: 20%;
+  background-color: red;
+}
+/* items */
+.Items {
+  height: 100%;
+  width:40%;
+  background-color: yellow;
 }
