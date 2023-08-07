@@ -15,10 +15,18 @@ class ItemsController < ApplicationController
       @Item.delete
     end
   
+    def fetch_by_category
+      category = params[:category]
+      items = Item.where(category: category)
+      render json: items
+    end
+
   private
    def set_user
      if user_signed_in?
       @current_user = current_user
      end
    end
+
+
 end

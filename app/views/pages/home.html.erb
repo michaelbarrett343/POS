@@ -26,13 +26,15 @@
 
   <div class="Categories">
     <% @items.each do |item| %>
-      <button class="category-buttons" type="button"><%= item.category %></button>
+      <button class="category-buttons" data-category="<%= item.category %>"><%= item.category %></button>
     <% end %>
   </div>
 
   <div class="Items">
+  <%= javascript_pack_tag 'POS-btn'%>
   </div>
 </div>
+
 <!--
 <% @items.each do |item| %>
    <p>

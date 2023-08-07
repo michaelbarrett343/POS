@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
   get "items", to: "items#index"
   post "items", to: "items#new"
+  get 'items/fetch_by_category', to: 'items#fetch_by_category'
   #get 'users/:id/items' => 'items#index', :as => :user_items_path
 
   resources :user do
