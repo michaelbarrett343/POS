@@ -1,14 +1,21 @@
 class ItemsController < ApplicationController
-    def index
-      @items = Item.where(items: { user_id: current_user.id })
-    end
+  def index
+    @items = current_user.items # Fetch items for the current user
+  end
 
     def new
       @item = Item.new
     end
   
     def create
-      @Item = Item.create
+     @item = Item.new(item_params) # Create a new item using the parameters submitted from the form
+     @item.user = current_user # Associate the item with the current user
+
+     if @item.save
+      redirect_to items_path, notice: 'Item was successfully created.'
+     else
+      render :new
+    end
     end
   
     def destroy
@@ -22,6 +29,11 @@ class ItemsController < ApplicationController
     end
 
   private
+
+  def item_params
+    params.require(:item).permit(:name, :price, :category)
+  end
+
    def set_user
      if user_signed_in?
       @current_user = current_user
