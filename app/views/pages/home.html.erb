@@ -4,11 +4,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>POS</title>
+  <%= javascript_pack_tag 'POS-btn'%>
 </head>
 <body>
 <ul id="nav-bar">
   <li><%= link_to "POS", root_path %></li>
-  <li><a href="news.asp">News</a></li>
+  <li><a href="news.asp">items</a></li>
   <li><a href="contact.asp">Contact</a></li>
   <li><a href="about.asp">About</a></li>
   <li>
@@ -31,10 +32,11 @@
   </div>
 
   <div class="Items">
-  <%= javascript_pack_tag 'POS-btn'%>
   </div>
 </div>
-
+<p>
+   current user = <%=@user.email %>
+</p>
 <!--
 <% @items.each do |item| %>
    <p>

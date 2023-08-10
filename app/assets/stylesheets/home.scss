@@ -78,4 +78,20 @@ background-color: blue;
   height: 100%;
   width:40%;
   background-color: yellow;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 10px;
+}
+
+.Items button {
+  padding: 10px 15px;
+  background-color: #555;
+  color: #faf7f7;
+  border: 2px solid;
+  border-color: rgb(78, 206, 223);
+  border-radius: 15px;
+  font-weight: 600;
+  max-height: 15%;
+  margin-top: 5px;
 }

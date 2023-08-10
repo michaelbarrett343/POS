@@ -4,25 +4,60 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <%= javascript_pack_tag "items"%>
 </head>
 <body>
-<%= form_with model: @item do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :category %>
-  <%= f.text_field :category %>
-  <%= f.label :cost_price %>
-  <%= f.number_field :cost_price %>
-  <%= f.label :sale_price %>
-  <%= f.number_field :sale_price %>
-  <%= f.submit %>
-<% end %>
-<%= link_to "Home", root_path %>
-<ul>
-  <% @items.each do |item| %>
-    <li><%= item.name %></li>
-  <% end %>
+<h1>Items</h1>
 
-</ul>
+<button id="new-item-button">New Item</button>
+
+<!-- Table to display items -->
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>cost_price</th>
+      <th>Sale Price</th>
+      <th>Category</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody id="item-list">
+    <% @items.each do |item| %>
+      <tr>
+        <td><%= item.name %></td>
+        <td><%= item.cost_price %></td>
+        <td><%= item.sale_price %></td>
+        <td><%= item.category %></td>
+        <td>
+          <!-- Buttons to open the "Edit Item" and "Delete Item" modals -->
+          <button class="edit-item-button" data-id="<%= item.id %>">Edit</button>
+          <button class="delete-item-button" data-id="<%= item.id %>">Delete</button>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<!-- The "New Item" modal -->
+<div class="modal" id="new-item-modal">
+  <h2>New Item</h2>
+  <%= render 'form', item: Item.new %>
+</div>
+
+<!-- The "Edit Item" modal -->
+<div class="modal" id="edit-item-modal">
+  <h2>Edit Item</h2>
+  <form id="edit-item-form" action="/items/:id" method="patch">
+    <!-- Your edit item form fields here -->
+    <input type="text" name="item[name]" placeholder="Name">
+    <input type="number" name="item[sale_price]" placeholder="Sale Price">
+    <input type="number" name="item[cost_price]" placeholder="Cost Price">
+    <input type="text" name="item[category]" placeholder="Category">
+    <input type="submit" value="Update Item">
+    <button type="submit">Save Changes</button>
+  </form>
+</div>
+
 </body>
 </html>

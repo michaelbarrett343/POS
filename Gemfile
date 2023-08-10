@@ -56,3 +56,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 #for the seed file to create fake users, and items 
 gem 'faker'
+
+gem "pg_search"

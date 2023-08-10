@@ -1,0 +1,15 @@
+<%= form_with(model: item, id: "new-item-form") do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+
+  <%= form.label :cost_price %>
+  <%= form.number_field :cost_price %>
+
+  <%= form.label :sale_price %>
+  <%= form.number_field :sale_price %>
+
+  <%= form.label :category %>
+  <%= form.text_field :category %>
+
+  <%= form.submit "Create Item" %>
+<% end %>

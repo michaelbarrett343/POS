@@ -6,8 +6,13 @@ require 'faker'
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+drinkcategory = ['vodka', 'whiskey', 'tequila', 'beer', 'liquer','cocktails'] 
+puts drinkcategory.sample
 user = User.create(email:'badboys@hotmail.co.uk', password:'helloworld')
-item = Item.create(user: User.all.sample, name:'35 ml vodka', category: 'vodka', cost_price:1, sale_price:6)
+10.times {
+  item = Item.create(user: User.all.sample, name:Faker::Beer.name, category: drinkcategory.sample, cost_price:1, sale_price:6)
+}
 
 5.times {
   User.create(email:Faker::Internet.email, password:Faker::TvShows::Simpsons.quote)
