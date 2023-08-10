@@ -49,7 +49,7 @@ class ItemsController < ApplicationController
   
     def fetch_by_category
       category = params[:category]
-      items = Item.where(category: category)
+      items = current_user.items.where(category: category).order(:name)
       render json: items
     end
 

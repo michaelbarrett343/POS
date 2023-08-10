@@ -26,8 +26,8 @@
   </div>
 
   <div class="Categories">
-    <% @items.each do |item| %>
-      <button class="category-buttons" data-category="<%= item.category %>"><%= item.category %></button>
+    <% @unique_categories.each do |category| %>
+      <button class="category-buttons" data-category="<%= category %>"><%= category %></button>
     <% end %>
   </div>
 
@@ -48,11 +48,6 @@
    current user = <%=@user.email %>
 </p>
 
-  <% @users.each do |user| %>
-  <p>
-    <%= user.email %>
-  </p> 
-<% end %>
 -->
 </body>
 </html>
