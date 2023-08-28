@@ -4,7 +4,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>POS</title>
-  <%= javascript_pack_tag 'POS-btn'%>
+  
 </head>
 <body>
 <ul id="nav-bar">
@@ -26,9 +26,13 @@
   </div>
 
   <div class="Categories">
+  <% if @items.empty?%>
+    <%= link_to "Add your Items here", items_path %>
+    <%else%>
     <% @unique_categories.each do |category| %>
       <button class="category-buttons" data-category="<%= category %>"><%= category %></button>
     <% end %>
+  <%end%>
   </div>
 
   <div class="Items">
