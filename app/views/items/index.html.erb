@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <%= javascript_pack_tag "items"%>
 </head>
 <body>
 <h1>Items</h1>
@@ -24,15 +23,16 @@
   </thead>
   <tbody id="item-list">
     <% @items.each do |item| %>
-      <tr>
-        <td><%= item.name %></td>
-        <td><%= item.cost_price %></td>
-        <td><%= item.sale_price %></td>
-        <td><%= item.category %></td>
+      <tr data-id="<%= item.id %>" data-user-id="<%= current_user.id %>">
+        <td class="item-name"><%= item.name %></td>
+        <td class="item-cost-price"><%= item.cost_price %></td>
+        <td class="item-sale-price"><%= item.sale_price %></td>
+        <td class="item-category"><%= item.category %></td>
         <td>
           <!-- Buttons to open the "Edit Item" and "Delete Item" modals -->
-          <button class="edit-item-button" data-id="<%= item.id %>">Edit</button>
-          <button class="delete-item-button" data-id="<%= item.id %>">Delete</button>
+          <button class="edit-item-button" data-id="<%= item.id %>" data-user-id="<%= current_user.id %>">Edit</button>
+          <button class="delete-item-button" data-id="<%= item.id %>" data-user-id="<%= current_user.id %>">Delete</button>
+
         </td>
       </tr>
     <% end %>
@@ -40,23 +40,25 @@
 </table>
 
 <!-- The "New Item" modal -->
-<div class="modal" id="new-item-modal">
+<div class="modal" id="new-item-modal" style='display: none;'>
   <h2>New Item</h2>
   <%= render 'form', item: Item.new %>
+  <button class="close-modal-button" id="close-new-item-modal">Close</button>
 </div>
 
 <!-- The "Edit Item" modal -->
-<div class="modal" id="edit-item-modal">
+<div class="modal" id="edit-item-modal" style='display: none;'>
   <h2>Edit Item</h2>
-  <form id="edit-item-form" action="/items/:id" method="patch">
-    <!-- Your edit item form fields here -->
-    <input type="text" name="item[name]" placeholder="Name">
-    <input type="number" name="item[sale_price]" placeholder="Sale Price">
-    <input type="number" name="item[cost_price]" placeholder="Cost Price">
-    <input type="text" name="item[category]" placeholder="Category">
-    <input type="submit" value="Update Item">
-    <button type="submit">Save Changes</button>
-  </form>
+  <form id="edit-item-form" action="" method="patch" data-item-id="" data-user-id="">
+  <!-- Your edit item form fields here -->
+  <input type="hidden" name="_method" value="patch">
+  <input type="text" name="item[name]" placeholder="Name">
+  <input type="number" name="item[cost_price]" placeholder="Cost Price">
+  <input type="number" name="item[sale_price]" placeholder="Sale Price">
+  <input type="text" name="item[category]" placeholder="Category">
+  <input type="submit" value="Update Item">
+</form>
+  <button class="close-modal-button" id="close-edit-item-modal">Close</button>
 </div>
 
 </body>

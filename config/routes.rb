@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
-  devise_for :users
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  root to: "pages#home"
-  resources :items, :except => [:show]
-  #get 'search', to: 'items#search', as: :search_items
-  get 'items/fetch_by_category', to: 'items#fetch_by_category'
-  #get 'users/:id/items' => 'items#index', :as => :user_items_path
 
-  resources :user do
-    resources :items
+devise_for :users
+root to: "pages#home"
+
+resources :items, except: [:show] do
+  member do
+    get :current_user_selected_item
+    patch :update_item
   end
+end
+get 'items/fetch_by_category', to: 'items#fetch_by_category'
+
 end

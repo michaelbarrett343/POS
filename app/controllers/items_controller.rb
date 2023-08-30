@@ -1,21 +1,17 @@
 class ItemsController < ApplicationController
+  before_action :authenticate_user!
+  
   def index
     @items = current_user.items # Fetch items for the current user
-    @item = Item.new
   end
   
-
-     def new
-      puts "New Item action called"
-      @item = Item.new
-    end
     
     def create
       puts "Create Item action called"
       @item = current_user.items.new(item_params)
-    
       respond_to do |format|
         if @item.save
+          puts "item saved"
           format.html { redirect_to items_path, notice: 'Item was successfully created.' }
           format.json { render json: @item, status: :created }
         else
@@ -26,28 +22,37 @@ class ItemsController < ApplicationController
       end
     end
 
-    def update
-      @item = Item.find(params[:id])
-      if @item.update(item_params)
-        render json: @item, status: :ok
-      else
-        render json: @item.errors, status: :unprocessable_entity
+    def update_item
+      @item = current_user.items.find(params[:id])
+      respond_to do |format|
+        if @item.update(item_params)
+          format.json { render json: @item, status: :ok }
+          format.html { redirect_to items_url, notice: 'Item was successfully updated.' }
+        else
+          format.json { render json: @item.errors, status: :unprocessable_entity }
+          format.html { render :edit }
+        end
       end
     end
 
   
     def destroy
-      @item = Item.find(params[:id])
+      @item = current_user.items.find(params[:id])
       @item.destroy
+      puts "deleting item"
     respond_to do |format|
       format.html { redirect_to items_url, notice: 'Item was successfully destroyed.' }
       format.json { head :no_content }
     end
     end
 
-
+    def current_user_selected_item
+      @item = Item.find(params[:id])
+      render json: @item
+    end
   
     def fetch_by_category
+      puts "finding item by category"
       category = params[:category]
       items = current_user.items.where(category: category).order(:name)
       render json: items
