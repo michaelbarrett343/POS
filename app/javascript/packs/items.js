@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const itemList = document.getElementById('item-list');
   const closeButtons = document.querySelectorAll('.close-modal-button');
   const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+  const createItemForm = document.getElementById('new-item-form');
 
   // Function to open the "New Item" modal
   newItemButton.addEventListener('click', () => {
@@ -85,11 +86,12 @@ document.addEventListener('DOMContentLoaded', () => {
   newItemForm.addEventListener('submit', event => {
     event.preventDefault();
 
-    const formData = new FormData(newItemForm);
+    const formData = new FormData(createItemForm);
+    console.log(formData);
     fetch('/items', {
       method: 'POST',
       headers: {
-        'X-CSRF-Token': '<%= form_authenticity_token %>',
+        'X-CSRF-Token': csrfToken,
         'Accept': 'application/json'
       },
       body: formData
@@ -98,10 +100,12 @@ document.addEventListener('DOMContentLoaded', () => {
       .then(item => {
         // Append the new item to the list without reloading the page
         console.log("adding new item")
+        console.log(item)
         const newRow = itemList.insertRow();
         newRow.innerHTML = `
           <td>${item.name}</td>
-          <td>${item.price}</td>
+          <td>${item.cost_price}</td>
+          <td>${item.sale_price}</td>
           <td>${item.category}</td>
           <td>
             <button class="edit-item-button" data-id="${item.id}">Edit</button>
