@@ -4,11 +4,46 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>POS</title>
-  
+  <%= javascript_pack_tag 'paymentcalc.js', 'data-turbolinks-track': 'reload'%>
 </head>
 <body>
 <div class="Container">
-  <div class="Screen">
+  <div class="Screen-container">
+    <div class="Screen">
+    </div>
+    
+    <table class="payment-calc">
+      <tr>
+            <td colspan="3">
+                <input type="text" id="result">
+            </td>
+            <td><input type="button" value="c"></td>
+      </tr>
+      <tr>
+            <td><input type="button" value="1"></td>
+            <td><input type="button" value="2"></td>
+            <td><input type="button" value="3"></td>
+            <td><input type="button" value="/"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="4"></td>
+            <td><input type="button" value="5"></td>
+            <td><input type="button" value="6"></td>
+            <td><input type="button" value="*"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="7"></td>
+            <td><input type="button" value="8"></td>
+            <td><input type="button" value="9"></td>
+            <td><input type="button" value="-"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="0"></td>
+            <td><input type="button" value="."></td>
+            <td><input type="button" value="="></td>
+            <td><input type="button" value="+"></td>
+        </tr>
+    </table>
 
   </div>
 
@@ -25,10 +60,10 @@
   <div class="Items">
   </div>
 </div>
+<!--
 <p>
    current user = <%=@user.email %>
 </p>
-<!--
 <% @items.each do |item| %>
    <p>
      <%= item.name%>

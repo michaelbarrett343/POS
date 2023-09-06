@@ -42,17 +42,11 @@ body {
   font-family: Arial, sans-serif;
   display: flex;
 }
-/* screen */
-.Screen {
-height: 100%;
-width: 40%;
-background-color: blue;
-}
 /* catergories */
 .Categories {
   height: 100%;
   width: 20%;
-  background-color: red;
+  background-color: rgb(62, 62, 56);
   display: flex;
   flex-direction: column;
 }
@@ -77,11 +71,12 @@ background-color: blue;
 .Items {
   height: 100%;
   width:40%;
-  background-color: yellow;
+  background-color: rgb(36, 36, 32);
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   gap: 10px;
+  overflow-y:auto;
 }
 
 .Items button {
@@ -91,7 +86,52 @@ background-color: blue;
   border: 2px solid;
   border-color: rgb(78, 206, 223);
   border-radius: 15px;
-  font-weight: 600;
+  font-weight: 6%;
   max-height: 15%;
   margin-top: 5px;
+}
+
+/* screen container*/
+.Screen-container {
+height: 100%;
+width: 40%;
+background-color: rgb(36, 36, 32);
+display: flex;
+flex-direction: column;
+}
+/* screen */
+
+.Screen {
+  background-color: #555;
+  border: 2px solid;
+  height: 50%;
+  width: 95%;
+  margin: auto;
+  margin-top: 1%;
+}
+
+/*payment screen */
+.payment-calc {
+  max-height: inherit;
+  border: 1px solid black;
+}
+
+input[type="button"] {
+  background-color: rgb(78, 206, 223);
+  width: 100%;
+  padding: 20px 40px;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+}
+
+input[type="text"] {
+  padding: 20px 30px;
+  font-size: 24px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  border: 2px solid black;
 }
