@@ -23,11 +23,13 @@ document.addEventListener('DOMContentLoaded', () => {
         .then((data) => {
           // Generate buttons for items with the same category
           const itemButtons = data.map((item) => {
-            return `<button>${item.name}</button>`;
+            return `<button value="${item.id}">${item.name}</button>`;
           });
           itemButtonsContainer.innerHTML = itemButtons.join('');
         })
         .catch((error) => console.error('Error:', error));
     });
   });
+
+
 });
