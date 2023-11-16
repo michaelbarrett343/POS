@@ -1,3 +1,5 @@
+require 'csv'
+
 class ItemsController < ApplicationController
   before_action :authenticate_user!
   
@@ -56,6 +58,11 @@ class ItemsController < ApplicationController
       category = params[:category]
       items = current_user.items.where(category: category).order(:name)
       render json: items
+    end
+
+    def import
+      Item.import(params[:file], current_user)
+      redirect_to items_path, notice: 'Items imported successfully.'
     end
 
   private

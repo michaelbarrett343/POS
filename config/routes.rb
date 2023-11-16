@@ -4,6 +4,7 @@ devise_for :users
 root to: "pages#home"
 
 resources :items, except: [:show] do
+  collection { post :import }
   member do
     get :current_user_selected_item
     patch :update_item

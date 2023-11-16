@@ -10,7 +10,10 @@
 <h1>Items</h1>
 
 <button id="new-item-button">New Item</button>
-<button id="upload-items">Upload items</button>
+<%= form_tag import_items_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag 'Import Items' %>
+<% end %>
 <!-- Table to display items -->
 <table>
   <thead>
