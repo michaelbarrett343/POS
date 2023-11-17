@@ -111,17 +111,16 @@ flex-direction: column;
 }
 
 /*payment screen */
+
 .payment-calc {
-  display: flex;
-  flex-direction: column;
-  max-height: inherit;
-  border: 1px solid black;
+  width: 100%;
+  border: 2px solid black;
 }
 
 input[type="button"] {
   background-color: rgb(78, 206, 223);
   width: 100%;
-  padding: 20px 40px;
+  padding: 20px 10px;
   color: white;
   font-size: 24px;
   font-weight: bold;
@@ -133,7 +132,12 @@ input[type="text"] {
   padding: 20px 30px;
   font-size: 24px;
   font-weight: bold;
-  border: none;
-  border-radius: 5px;
   border: 2px solid black;
+  border-radius: 5px;
+}
+
+table 
+{
+    table-layout:fixed;
+    width:100%;
 }
