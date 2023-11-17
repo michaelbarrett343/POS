@@ -3,7 +3,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   const categoryButtons = document.querySelectorAll('.category-buttons');
   const itemButtonsContainer = document.querySelector('.Items');
-
   categoryButtons.forEach((button) => {
     button.addEventListener('click', () => {
       const category = button.dataset.category;
@@ -23,13 +22,22 @@ document.addEventListener('DOMContentLoaded', () => {
         .then((data) => {
           // Generate buttons for items with the same category
           const itemButtons = data.map((item) => {
-            return `<button value="${item.id}">${item.name}</button>`;
+            return `<button class="item-btns" value="${item.id}">${item.name}</button>`;
           });
           itemButtonsContainer.innerHTML = itemButtons.join('');
+          //add eventlistener to item buttons
+          const dynamicItemButtons = document.querySelectorAll('.item-btns');
+          dynamicItemButtons.forEach((itemButton) => {
+            itemButton.addEventListener('click', () => {
+              const itemId = itemButton.value;
+              console.log('Item clicked with ID:', itemId);
+            });
+          });
+        
         })
         .catch((error) => console.error('Error:', error));
+
     });
   });
-
 
 });
