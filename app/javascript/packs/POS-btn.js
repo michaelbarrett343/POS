@@ -3,6 +3,8 @@
 document.addEventListener('DOMContentLoaded', () => {
   const categoryButtons = document.querySelectorAll('.category-buttons');
   const itemButtonsContainer = document.querySelector('.Items');
+  const Screen = document.querySelector('.Screen');
+
   categoryButtons.forEach((button) => {
     button.addEventListener('click', () => {
       const category = button.dataset.category;
@@ -31,6 +33,22 @@ document.addEventListener('DOMContentLoaded', () => {
             itemButton.addEventListener('click', () => {
               const itemId = itemButton.value;
               console.log('Item clicked with ID:', itemId);
+
+              const itemDetailsUrl = `/items/${itemId}/current_user_selected_item.json`;
+
+              fetch(itemDetailsUrl, {
+                method: 'GET',
+                headers: {
+                  'Content-Type': 'application/json',
+                  'X-CSRF-Token': csrfToken,
+                },
+              })
+                .then((response) => response.json())
+                .then((itemDetails) => {
+                  console.log('Item details:', itemDetails);
+                })
+                  .catch((error) => console.error('Error fetching item details:', error));
+              
             });
           });
         
