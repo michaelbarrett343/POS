@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const categoryButtons = document.querySelectorAll('.category-buttons');
   const itemButtonsContainer = document.querySelector('.Items');
   const Screen = document.querySelector('.Screen');
+  console.log(Screen)
 
   categoryButtons.forEach((button) => {
     button.addEventListener('click', () => {
@@ -46,6 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 .then((response) => response.json())
                 .then((itemDetails) => {
                   console.log('Item details:', itemDetails);
+                  Screen.innerHTML = `${itemDetails.name} ${itemDetails.sale_price}`
                 })
                   .catch((error) => console.error('Error fetching item details:', error));
               
