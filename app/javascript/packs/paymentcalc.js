@@ -35,7 +35,8 @@ document.addEventListener('DOMContentLoaded', () => {
   })
   
 })
-// add in faster user input method later 
+// add in faster user input method later(start at 0.00 move decimal place with each input (*10 + input) )
+
   // function display(value) {
   //   if (currentInput === '0.00' && value !== '.') {
   //       currentInput = value;

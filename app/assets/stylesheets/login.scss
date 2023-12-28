@@ -1,39 +1,35 @@
-div {
-  display: block;
+.reg-all {
+  font-size: 13px;
+  line-height: 1.8;
+  color: #cdcdcd;
+  background-color: #cdcdcd;
+  font-weight: 400;
+  font-family: Poppins;
 }
 
-body{
-    font-size: 13px;
-    line-height: 1.8;
-    color: #cdcdcd;
-    background-color: #cdcdcd;
-    font-weight: 400;
-    font-family: Poppins;
-}
-
-.signup-content{
+.signup-content {
   display: flex;
   flex-direction: row;
   padding: 75px 0;
 }
 
-.main{
+.reg-main {
   background: #f8f8f8cb;
-  padding: 150px 0;
+  padding: 50px 0;
 }
 
-.container{
-  width: calc( 100% - 30px);
+.reg-container {
+  width: calc(100% - 30px);
   width: 900px;
   max-width: 100%;
   border: 3px;
   background: #f8f8f8;
-  box-shadow: 0 15px 16.83px 0.17px rgba(0,0,0,.05);
+  box-shadow: 0 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
   border-radius: 20px;
   margin: 0 auto;
 }
 
-.signup-form{
+.reg-form {
   margin-left: 75px;
   margin-right: 75px;
   padding-left: 34px;
@@ -41,13 +37,12 @@ body{
   overflow: hidden;
 }
 
-.field{
+.field {
   margin-bottom: 25px;
   overflow: hidden;
-  
 }
 
-.transparent{
+.transparent {
   border: 0;
   margin-bottom: 25px;
   position: relative;
@@ -59,8 +54,7 @@ body{
   font-size: 18px;
 }
 
-
-.login-title{
+.reg-title {
   line-height: 1.66;
   margin: 0;
   padding: 0;
@@ -72,54 +66,61 @@ body{
   text-align: center;
 }
 
-.signin-pic{
+.signin-pic {
   height: 100%;
   width: 90%;
 }
 
-.reg-icon{
+.reg-icon {
   height: 25px;
   width: 27px;
 }
 
-.log-in-btn{
+.reg-btn {
   font-weight: bold;
   font-size: 16px;
   font-family: poppins;
-  color: #cdcdcd;
-  text-shadow: #9fc5f4;
+  color:#f8f8f8;
   border-radius: 5px;
   text-decoration: solid;
   height: 35px;
   width: 175px;
-  background-color:rgb(38, 111, 172);
+  background-color: rgb(38, 111, 172);
 }
 
-h1 {
-  border-right: solid 3px rgba(0,255,0,.75);
+.reg-text {
+  border-right: solid 3px rgba(0, 255, 0, 0.75);
   white-space: nowrap;
-  overflow: hidden;    
-  font-family: 'poppins', monospace; 
+  overflow: hidden;
+  font-family: "poppins", monospace;
   font-size: 28px;
   color: #222;
 }
 
 /* Animation */
-h1 {
-  animation: animated-text 4s steps(29,end) 1s 1 normal both,
-             animated-cursor 600ms steps(29,end) infinite;
+.type-writer {
+  animation: animated-text 4s steps(29, end) 1s 1 normal both,
+    animated-cursor 600ms steps(29, end) infinite;
 }
 
 /* text animation */
 
-@keyframes animated-text{
-  from{width: 0;}
-  to{width: 100%;}
+@keyframes animated-text {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
 }
 
 /* cursor animations */
 
-@keyframes animated-cursor{
-  from{border-right-color: #cdcdcd;}
-  to{border-right-color: transparent;}
+@keyframes animated-cursor {
+  from {
+    border-right-color: #cdcdcd;
+  }
+  to {
+    border-right-color: transparent;
+  }
 }
